@@ -14,7 +14,7 @@ public class UserService {
     }
 
     User register(User user) {
-        emailClient.sendWelcomeEmail(user.getEmail());
+        emailClient.sendWelcomeEmail(user.email);
         return userRepository.save(user);
     }
 }

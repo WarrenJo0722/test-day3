@@ -1,14 +1,11 @@
 package com.example.day3.domain;
 
-import lombok.Getter;
-
-@Getter
 public class User {
-    Long id;
-    String name;
-    String email;
+    public Long id;
+    public String name;
+    public String email;
 
-    User(String name, String email) {
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
     }
