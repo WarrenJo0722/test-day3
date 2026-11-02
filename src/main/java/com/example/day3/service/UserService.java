@@ -1,0 +1,20 @@
+package com.example.day3.service;
+
+import com.example.day3.client.EmailClient;
+import com.example.day3.domain.User;
+import com.example.day3.repository.UserRepository;
+
+public class UserService {
+    UserRepository userRepository;
+    EmailClient emailClient;
+
+    UserService(UserRepository userRepository, EmailClient emailClient) {
+        this.userRepository = userRepository;
+        this.emailClient = emailClient;
+    }
+
+    User register(User user) {
+        emailClient.sendWelcomeEmail(user.getEmail());
+        return userRepository.save(user);
+    }
+}
