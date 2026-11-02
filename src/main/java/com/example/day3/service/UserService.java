@@ -13,8 +13,13 @@ public class UserService {
         this.emailClient = emailClient;
     }
 
-    User register(User user) {
+    public User register(User user) {
         emailClient.sendWelcomeEmail(user.email);
         return userRepository.save(user);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 유저입니다"));
     }
 }
